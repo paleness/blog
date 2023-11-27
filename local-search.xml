@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>Docker部署Wasm</title>
+    <link href="/2023/11/27/Docker%E9%83%A8%E7%BD%B2Wasm/"/>
+    <url>/2023/11/27/Docker%E9%83%A8%E7%BD%B2Wasm/</url>
+    
+    <content type="html"><![CDATA[<p>Blazor Webassembly作为独立项目发布时为静态文件发布<br>故采用nginx代理静态文件方式部署</p><ol><li><p>添加 Dockerfile 配置<br>在发布根目录添加Dockerfile文件，并添加如下配置</p><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-comment"># 使用官方的 Nginx 镜像作为基础镜像</span><br><span class="hljs-keyword">FROM</span> nginx:latest<br><br><span class="hljs-comment"># 删除 Nginx 默认的静态文件目录中的内容</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> <span class="hljs-built_in">rm</span> -rf /usr/share/nginx/html/*</span><br><br><span class="hljs-comment"># 将本地的静态文件复制到 Nginx 的默认静态文件目录</span><br><span class="hljs-keyword">COPY</span><span class="language-bash"> ./wwwroot /usr/share/nginx/html</span><br><br><span class="hljs-comment"># 设置 Nginx 配置以使用新的静态文件目录 可选</span><br><span class="hljs-comment"># COPY nginx.conf /etc/nginx/nginx.conf</span><br><br><span class="hljs-comment"># 暴露 Nginx 默认端口 80（如果有需要，可以映射到宿主机的其他端口）</span><br><span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">80</span><br><br><span class="hljs-comment"># 启动 Nginx 服务</span><br><span class="hljs-keyword">CMD</span><span class="language-bash"> [<span class="hljs-string">&quot;nginx&quot;</span>, <span class="hljs-string">&quot;-g&quot;</span>, <span class="hljs-string">&quot;daemon off;&quot;</span>]</span><br></code></pre></td></tr></table></figure></li><li><p>构建镜像</p><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sqf">docker build -t &lt;your-<span class="hljs-built_in">image</span>-<span class="hljs-built_in">name</span>&gt; .<br></code></pre></td></tr></table></figure></li><li><p>构建容器</p><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">docker run -d -p &lt;port&gt;:<span class="hljs-number">80</span> &lt;you-image-name&gt;<br></code></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>Docker</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Docker</tag>
+      
+      <tag>Blazor</tag>
+      
+      <tag>Net Core</tag>
+      
+      <tag>Blazor WebAssembly</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>网站推荐</title>
     <link href="/2023/11/24/%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90/"/>
     <url>/2023/11/24/%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90/</url>
