@@ -16,25 +16,22 @@
   <meta name="author" content="An">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Blazor Webassembly作为独立项目发布时为静态文件发布故采用nginx代理静态文件方式部署  添加 Dockerfile 配置在发布根目录添加Dockerfile文件，并添加如下配置 1234567891011121314151617# 使用官方的 Nginx 镜像作为基础镜像FROM nginx:latest# 删除 Nginx 默认的静态文件目录中的内容RUN rm -rf &#x2F;u">
+    <meta name="description" content="Fooocus-Api 本地搭建 安装CUDA Toolkit根据自己的系统版本选择下载    验证是否安装成功命令行输入  nvcc --version安装成功的话会显示CUDA Toolkit版本  安装Pytorch根据自己的环境选择安装，然后赋值脚本命令进行下载即可，需要注意的是Pytorch与CUDA Toolkit版本需要对应     验证是否安装成功 命令行输入import torc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker部署Wasm">
-<meta property="og:url" content="https://wangcc.com.cn/2023/11/27/Docker%E9%83%A8%E7%BD%B2Wasm/index.html">
+<meta property="og:title" content="Fooocus-Api">
+<meta property="og:url" content="https://wangcc.com.cn/2023/12/27/Fooocus-Api/index.html">
 <meta property="og:site_name" content="逍遥仙">
-<meta property="og:description" content="Blazor Webassembly作为独立项目发布时为静态文件发布故采用nginx代理静态文件方式部署  添加 Dockerfile 配置在发布根目录添加Dockerfile文件，并添加如下配置 1234567891011121314151617# 使用官方的 Nginx 镜像作为基础镜像FROM nginx:latest# 删除 Nginx 默认的静态文件目录中的内容RUN rm -rf &#x2F;u">
+<meta property="og:description" content="Fooocus-Api 本地搭建 安装CUDA Toolkit根据自己的系统版本选择下载    验证是否安装成功命令行输入  nvcc --version安装成功的话会显示CUDA Toolkit版本  安装Pytorch根据自己的环境选择安装，然后赋值脚本命令进行下载即可，需要注意的是Pytorch与CUDA Toolkit版本需要对应     验证是否安装成功 命令行输入import torc">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-11-27T10:03:21.000Z">
-<meta property="article:modified_time" content="2023-11-27T10:27:54.207Z">
+<meta property="article:published_time" content="2023-12-27T02:21:50.000Z">
+<meta property="article:modified_time" content="2023-12-27T03:43:46.906Z">
 <meta property="article:author" content="An">
-<meta property="article:tag" content="Docker">
-<meta property="article:tag" content="Blazor">
-<meta property="article:tag" content="Net Core">
-<meta property="article:tag" content="Blazor WebAssembly">
+<meta property="article:tag" content="Foocus">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Docker部署Wasm - 逍遥仙</title>
+  <title>Fooocus-Api - 逍遥仙</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -212,7 +209,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Docker部署Wasm"></span>
+            <span id="subtitle" data-typed-text="Fooocus-Api"></span>
           
         </div>
 
@@ -223,8 +220,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-11-27 18:03" pubdate>
-          2023年11月27日 晚上
+        <time datetime="2023-12-27 10:21" pubdate>
+          2023年12月27日 上午
         </time>
       </span>
     
@@ -235,7 +232,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          534 字
+          218 字
         
       </span>
     
@@ -246,7 +243,7 @@
         
         
         
-          5 分钟
+          2 分钟
         
       </span>
     
@@ -283,22 +280,27 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Docker部署Wasm</h1>
+            <h1 id="seo-header">Fooocus-Api</h1>
             
             
               <div class="markdown-body">
                 
-                <p>Blazor Webassembly作为独立项目发布时为静态文件发布<br>故采用nginx代理静态文件方式部署</p>
-<ol>
-<li><p>添加 Dockerfile 配置<br>在发布根目录添加Dockerfile文件，并添加如下配置</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-comment"># 使用官方的 Nginx 镜像作为基础镜像</span><br><span class="hljs-keyword">FROM</span> nginx:latest<br><br><span class="hljs-comment"># 删除 Nginx 默认的静态文件目录中的内容</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> <span class="hljs-built_in">rm</span> -rf /usr/share/nginx/html/*</span><br><br><span class="hljs-comment"># 将本地的静态文件复制到 Nginx 的默认静态文件目录</span><br><span class="hljs-keyword">COPY</span><span class="language-bash"> ./wwwroot /usr/share/nginx/html</span><br><br><span class="hljs-comment"># 设置 Nginx 配置以使用新的静态文件目录 可选</span><br><span class="hljs-comment"># COPY nginx.conf /etc/nginx/nginx.conf</span><br><br><span class="hljs-comment"># 暴露 Nginx 默认端口 80（如果有需要，可以映射到宿主机的其他端口）</span><br><span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">80</span><br><br><span class="hljs-comment"># 启动 Nginx 服务</span><br><span class="hljs-keyword">CMD</span><span class="language-bash"> [<span class="hljs-string">&quot;nginx&quot;</span>, <span class="hljs-string">&quot;-g&quot;</span>, <span class="hljs-string">&quot;daemon off;&quot;</span>]</span><br></code></pre></td></tr></table></figure>
+                <h2 id="Fooocus-Api-本地搭建"><a href="#Fooocus-Api-本地搭建" class="headerlink" title="Fooocus-Api 本地搭建"></a>Fooocus-Api 本地搭建</h2><ul>
+<li><p>安装<a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-downloads?target_os=Windows&target_arch=x86_64&target_version=11&target_type=exe_local">CUDA Toolkit</a><br>根据自己的系统版本选择下载  </p>
+<ul>
+<li>验证是否安装成功<br>命令行输入</li>
+</ul>
+<p><code>nvcc --version</code><br>安装成功的话会显示<code>CUDA Toolkit</code>版本</p>
 </li>
-<li><p>构建镜像</p>
-<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sqf">docker build -t &lt;your-<span class="hljs-built_in">image</span>-<span class="hljs-built_in">name</span>&gt; .<br></code></pre></td></tr></table></figure>
+<li><p>安装<a target="_blank" rel="noopener" href="https://pytorch.org/get-started/locally/">Pytorch</a><br>根据自己的环境选择安装，然后赋值脚本命令进行下载即可，需要注意的是<code>Pytorch</code>与<code>CUDA Toolkit</code>版本需要对应   </p>
+<ul>
+<li>验证是否安装成功<br> 命令行输入<pre><code class="bash">import torch
+torch.cuda.is_available()
+</code></pre>
+ 如果返回True则代表可用</li>
+</ul>
 </li>
-<li><p>构建容器</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">docker run -d -p &lt;port&gt;:<span class="hljs-number">80</span> &lt;you-image-name&gt;<br></code></pre></td></tr></table></figure></li>
-</ol>
+</ul>
 
                 
               </div>
@@ -307,38 +309,11 @@
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Docker/" class="category-chain-item">Docker</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Docker/" class="print-no-link">#Docker</a>
-      
-        <a href="/tags/Blazor/" class="print-no-link">#Blazor</a>
-      
-        <a href="/tags/Net-Core/" class="print-no-link">#Net Core</a>
-      
-        <a href="/tags/Blazor-WebAssembly/" class="print-no-link">#Blazor WebAssembly</a>
+        <a href="/tags/Foocus/" class="print-no-link">#Foocus</a>
       
     </div>
   
@@ -352,18 +327,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/12/27/Fooocus-Api/" title="Fooocus-Api">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Fooocus-Api</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/24/%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90/" title="网站推荐">
-                        <span class="hidden-mobile">网站推荐</span>
+                      <a href="/2023/11/27/Docker%E9%83%A8%E7%BD%B2Wasm/" title="Docker部署Wasm">
+                        <span class="hidden-mobile">Docker部署Wasm</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
