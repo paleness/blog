@@ -16,22 +16,23 @@
   <meta name="author" content="An">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Fooocus-Api 本地搭建 安装CUDA Toolkit根据自己的系统版本选择下载    验证是否安装成功命令行输入  nvcc --version安装成功的话会显示CUDA Toolkit版本  安装Pytorch根据自己的环境选择安装，然后赋值脚本命令进行下载即可，需要注意的是Pytorch与CUDA Toolkit版本需要对应     验证是否安装成功 命令行输入import torc">
+    <meta name="description" content="Docker 搭建在合适路径下新建 baget.env 文件123456789# The following config is the API Key used to publish packages.# You should change this to a secret value to secure your server.ApiKey&#x3D;NUGET-SERVER-API-KEYStorag">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fooocus-Api">
-<meta property="og:url" content="https://wangcc.com.cn/2023/12/27/Fooocus-Api/index.html">
+<meta property="og:title" content="使用BaGet搭建本地NuGet服务器">
+<meta property="og:url" content="https://wangcc.com.cn/2024/06/23/%E4%BD%BF%E7%94%A8BaGet%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0NuGet%E6%9C%8D%E5%8A%A1%E5%99%A8/index.html">
 <meta property="og:site_name" content="逍遥仙">
-<meta property="og:description" content="Fooocus-Api 本地搭建 安装CUDA Toolkit根据自己的系统版本选择下载    验证是否安装成功命令行输入  nvcc --version安装成功的话会显示CUDA Toolkit版本  安装Pytorch根据自己的环境选择安装，然后赋值脚本命令进行下载即可，需要注意的是Pytorch与CUDA Toolkit版本需要对应     验证是否安装成功 命令行输入import torc">
+<meta property="og:description" content="Docker 搭建在合适路径下新建 baget.env 文件123456789# The following config is the API Key used to publish packages.# You should change this to a secret value to secure your server.ApiKey&#x3D;NUGET-SERVER-API-KEYStorag">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-12-27T02:21:50.000Z">
-<meta property="article:modified_time" content="2023-12-27T03:43:46.906Z">
+<meta property="article:published_time" content="2024-06-23T06:12:40.000Z">
+<meta property="article:modified_time" content="2024-06-23T06:17:56.498Z">
 <meta property="article:author" content="An">
-<meta property="article:tag" content="Foocus">
+<meta property="article:tag" content="BaGet">
+<meta property="article:tag" content="NuGet">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Fooocus-Api - 逍遥仙</title>
+  <title>使用BaGet搭建本地NuGet服务器 - 逍遥仙</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -209,7 +210,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Fooocus-Api"></span>
+            <span id="subtitle" data-typed-text="使用BaGet搭建本地NuGet服务器"></span>
           
         </div>
 
@@ -220,8 +221,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-12-27 10:21" pubdate>
-          2023年12月27日 上午
+        <time datetime="2024-06-23 14:12" pubdate>
+          2024年6月23日 下午
         </time>
       </span>
     
@@ -232,7 +233,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          218 字
+          739 字
         
       </span>
     
@@ -243,7 +244,7 @@
         
         
         
-          2 分钟
+          7 分钟
         
       </span>
     
@@ -280,27 +281,20 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Fooocus-Api</h1>
+            <h1 id="seo-header">使用BaGet搭建本地NuGet服务器</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="Fooocus-Api-本地搭建"><a href="#Fooocus-Api-本地搭建" class="headerlink" title="Fooocus-Api 本地搭建"></a>Fooocus-Api 本地搭建</h2><ul>
-<li><p>安装<a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-downloads?target_os=Windows&target_arch=x86_64&target_version=11&target_type=exe_local">CUDA Toolkit</a><br>根据自己的系统版本选择下载  </p>
-<ul>
-<li>验证是否安装成功<br>命令行输入</li>
-</ul>
-<p><code>nvcc --version</code><br>安装成功的话会显示<code>CUDA Toolkit</code>版本</p>
-</li>
-<li><p>安装<a target="_blank" rel="noopener" href="https://pytorch.org/get-started/locally/">Pytorch</a><br>根据自己的环境选择安装，然后赋值脚本命令进行下载即可，需要注意的是<code>Pytorch</code>与<code>CUDA Toolkit</code>版本需要对应   </p>
-<ul>
-<li>验证是否安装成功<br> 命令行输入<pre><code class="bash">import torch
-torch.cuda.is_available()
-</code></pre>
- 如果返回True则代表可用</li>
-</ul>
-</li>
-</ul>
+                <h2 id="Docker-搭建"><a href="#Docker-搭建" class="headerlink" title="Docker 搭建"></a>Docker 搭建</h2><h3 id="在合适路径下新建-baget-env-文件"><a href="#在合适路径下新建-baget-env-文件" class="headerlink" title="在合适路径下新建 baget.env 文件"></a>在合适路径下新建 baget.env 文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># The following config is the API Key used to publish packages.</span><br><span class="hljs-comment"># You should change this to a secret value to secure your server.</span><br>ApiKey=NUGET-SERVER-API-KEY<br><br>Storage__Type=FileSystem<br>Storage__Path=F://file/nuget/baget/packages  //绝对路径<br>Database__Type=Sqlite<br>Database__ConnectionString=Data Source=/var/baget/baget.db<br>Search__Type=Database<br></code></pre></td></tr></table></figure>
+<h3 id="docker-安装镜像"><a href="#docker-安装镜像" class="headerlink" title="docker 安装镜像"></a>docker 安装镜像</h3><p>拉取镜像</p>
+<p><code>docker pull loicsharma/baget</code></p>
+<p>在 <code>baget.env</code> 文件根目录下运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker run -d --name vinno.nuget -p 9999:80 --env-file baget.env -v <span class="hljs-string">&quot;F://file/nuget/baget-data:/var/baget&quot;</span> loicsharma/baget:latest<br></code></pre></td></tr></table></figure>
+<p>到此运行 localhost:9999 即可</p>
+<h3 id="推送Nuget包"><a href="#推送Nuget包" class="headerlink" title="推送Nuget包"></a>推送Nuget包</h3><p>项目右键属性，在打包这个 tab 页上勾选 “在构建时生成 NuGet 包”，这样在我们每次生成项目完成的时候会在bin目录下生成对应的 nuget 包<br>运行命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">dotnet nuget push -s http://localhost:9999/v3/index.json Vinno.Common.1.0.0.1.nupkg -k vinno.nuget<br></code></pre></td></tr></table></figure>
+<p>其中 -k vinno.nuget 为密钥</p>
 
                 
               </div>
@@ -309,11 +303,34 @@ torch.cuda.is_available()
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/NuGet/" class="category-chain-item">NuGet</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Foocus/" class="print-no-link">#Foocus</a>
+        <a href="/tags/BaGet/" class="print-no-link">#BaGet</a>
+      
+        <a href="/tags/NuGet/" class="print-no-link">#NuGet</a>
       
     </div>
   
@@ -327,9 +344,9 @@ torch.cuda.is_available()
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/06/23/%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90/" title="网站推荐">
+                      <a href="/2024/06/23/vscode%E4%B8%8B%E8%BD%BD%E6%85%A2/" title="Vs Code下载慢">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">网站推荐</span>
+                        <span class="hidden-mobile">Vs Code下载慢</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -337,8 +354,8 @@ torch.cuda.is_available()
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/27/Docker%E9%83%A8%E7%BD%B2Wasm/" title="Docker部署Wasm">
-                        <span class="hidden-mobile">Docker部署Wasm</span>
+                      <a href="/2024/06/23/%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90/" title="网站推荐">
+                        <span class="hidden-mobile">网站推荐</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
