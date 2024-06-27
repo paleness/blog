@@ -4,7 +4,7 @@
   
   
   <entry>
-    <title>nginx通过路由配置多个blazor项目</title>
+    <title>Nginx通过路由配置多个Blazor Server项目</title>
     <link href="/2024/06/27/nginx%E9%80%9A%E8%BF%87%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAblazor/"/>
     <url>/2024/06/27/nginx%E9%80%9A%E8%BF%87%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAblazor/</url>
     
@@ -13,18 +13,16 @@
     
     <categories>
       
-      <category>blazor</category>
-      
-      <category>nginx</category>
+      <category>Blazor</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>blazor server</tag>
+      <tag>Blazor Server</tag>
       
-      <tag>nginx</tag>
+      <tag>Nginx</tag>
       
     </tags>
     
@@ -43,7 +41,7 @@
     
     <tags>
       
-      <tag>vs code</tag>
+      <tag>Vs Code</tag>
       
     </tags>
     
@@ -88,16 +86,14 @@
     
     <categories>
       
-      <category>网站</category>
+      <category>网站推荐</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>网站推荐</tag>
-      
-      <tag>推荐</tag>
+      <tag>常用网站</tag>
       
     </tags>
     
@@ -113,10 +109,16 @@
     <content type="html"><![CDATA[<h2 id="Fooocus-Api-本地搭建"><a href="#Fooocus-Api-本地搭建" class="headerlink" title="Fooocus-Api 本地搭建"></a>Fooocus-Api 本地搭建</h2><ul><li><p>安装<a href="https://developer.nvidia.com/cuda-downloads?target_os=Windows&target_arch=x86_64&target_version=11&target_type=exe_local">CUDA Toolkit</a><br>根据自己的系统版本选择下载  </p><ul><li>验证是否安装成功<br>命令行输入</li></ul><p><code>nvcc --version</code><br>安装成功的话会显示<code>CUDA Toolkit</code>版本</p></li><li><p>安装<a href="https://pytorch.org/get-started/locally/">Pytorch</a><br>根据自己的环境选择安装，然后赋值脚本命令进行下载即可，需要注意的是<code>Pytorch</code>与<code>CUDA Toolkit</code>版本需要对应   </p><ul><li>验证是否安装成功<br> 命令行输入<pre><code class="bash">import torchtorch.cuda.is_available()</code></pre> 如果返回True则代表可用</li></ul></li></ul>]]></content>
     
     
+    <categories>
+      
+      <category>学习</category>
+      
+    </categories>
+    
     
     <tags>
       
-      <tag>Foocus</tag>
+      <tag>Fooocus-Api</tag>
       
     </tags>
     
@@ -134,7 +136,7 @@
     
     <categories>
       
-      <category>Docker</category>
+      <category>Blazor</category>
       
     </categories>
     
@@ -142,10 +144,6 @@
     <tags>
       
       <tag>Docker</tag>
-      
-      <tag>Blazor</tag>
-      
-      <tag>Net Core</tag>
       
       <tag>Blazor WebAssembly</tag>
       
@@ -197,7 +195,7 @@
     
     <tags>
       
-      <tag>博客</tag>
+      <tag>搭建博客</tag>
       
     </tags>
     
